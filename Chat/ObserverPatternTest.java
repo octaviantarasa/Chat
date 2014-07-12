@@ -1,0 +1,22 @@
+public class ObserverPatternTest{
+	public static void main(String []args){
+		MyTopic topic = new MyTopic();
+
+		Observer obj1 = new User("cucu", 5,1);
+		Observer obj2 = new User("bau", 6,0);
+		Observer obj3 = new User("cau", 7,1);
+
+		topic.register(obj1);
+		topic.register(obj2);
+		topic.register(obj3);
+
+		obj1.setSubject(topic);
+		obj2.setSubject(topic);
+		obj3.setSubject(topic);
+
+		obj1.update();
+
+		topic.postMessage("new message");
+
+	}
+}
